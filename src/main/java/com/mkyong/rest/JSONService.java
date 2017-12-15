@@ -7,6 +7,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import com.mkyong.Result;
 import com.mkyong.Track;
 import com.mkyong.Triple;
 
@@ -35,10 +36,12 @@ public class JSONService {
 
     @POST
     @Path("/post")
+    @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public String createTrackInJSON(Track track) {
-        return track.getSinger();
-
+    public Result createTrackInJSON(Track track) {
+        Result result = new Result();
+        result.result.add(22.59);
+        return result;
     }
 
 }
