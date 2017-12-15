@@ -1,9 +1,9 @@
-package com.mkyong;
+package com.model;
 
 public class Triple {
-    String HeadEntity;
-    String Relation;
-    String TailEntity;
+    public String HeadEntity;
+    public String Relation;
+    public String TailEntity;
 
     public String getHeadEntity() {
         return HeadEntity;

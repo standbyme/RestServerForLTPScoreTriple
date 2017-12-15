@@ -7,13 +7,14 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import com.mkyong.Result;
-import com.mkyong.Track;
-import com.mkyong.Triple;
+import com.model.Result;
+import com.scir.hypernym.webservice.dealResult;
+import com.model.Triple;
+import com.model.TripleWithSSIDs;
 
 import java.util.ArrayList;
 
-@Path("/json/metallica")
+@Path("/score")
 public class JSONService {
 
     @GET
@@ -28,20 +29,16 @@ public class JSONService {
 
         result.add(t);
         result.add(r);
-
-
         return result;
-
     }
 
     @POST
     @Path("/post")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public Result createTrackInJSON(Track track) {
-        Result result = new Result();
-        result.result.add(22.59);
+    public Result createTrackInJSON(TripleWithSSIDs triple_with_ssid_s) {
+        dealResult Dealer = new dealResult();
+        Result result = new Result(Dealer.pack(triple_with_ssid_s.triple_with_ssid_s));
         return result;
     }
-
 }
