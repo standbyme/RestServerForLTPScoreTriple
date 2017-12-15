@@ -11,17 +11,26 @@ import javax.ws.rs.core.Response;
 import com.mkyong.Track;
 import com.mkyong.Triple;
 
+import java.util.ArrayList;
+
 @Path("/json/metallica")
 public class JSONService {
 
     @GET
     @Path("/get")
     @Produces(MediaType.APPLICATION_JSON)
-    public Triple getTrackInJSON() {
+    public ArrayList<Triple> getTrackInJSON() {
 
         Triple t = new Triple("Harry", "Love", "Apple");
+        Triple r = new Triple("Kid", "Love", "Milk");
 
-        return t;
+        ArrayList<Triple> result = new ArrayList<Triple>();
+
+        result.add(t);
+        result.add(r);
+
+
+        return result;
 
     }
 
